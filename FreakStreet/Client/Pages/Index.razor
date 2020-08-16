@@ -1,0 +1,70 @@
+﻿@page "/"
+@inject HttpClient Http
+@inject NavigationManager UriHelper
+
+<div class="container">
+
+    <div class="searchbox">
+        <TextEdit Color="Color.Info" Placeholder="Search" TextChanged="@OnFilterChanged" />
+    </div>
+
+    <div class="movies">
+        @{
+            if (this.FilteredMovies != null)
+            {
+                foreach (var movie in this.FilteredMovies)
+                {
+                    <div class="movie-card" @onclick="(ev)=> OnClick(movie.Id,ev)">
+                        <Card>
+                            <CardImage Class="list-image" Source="@movie.PrimaryImg" Alt="Placeholder image">
+                            </CardImage>
+                            <CardBody>
+                                <CardTitle Size="5">@movie.Title</CardTitle>
+                                <CardText>
+                                    @movie.Description
+                                </CardText>
+                            </CardBody>
+
+                            @*<a>  <Icon Name="IconName.Heart" /> </a>*@
+
+                        </Card>
+                    </div>
+                }
+            }
+        }
+    </div>
+</div>
+
+@code{
+    //api/movies
+    private List<MovieModel> Movies;
+    private List<MovieModel> FilteredMovies;
+    private string filter = "";
+    protected override async Task OnInitializedAsync()
+    {
+        Movies = await Http.GetJsonAsync<List<MovieModel>>("api/movies");
+        FilteredMovies = new List<MovieModel>();
+        FilteredMovies.AddRange(Movies);
+
+    }
+
+    void OnFilterChanged(string value)
+    {
+        filter = value;
+        Console.WriteLine(filter);
+        if (!string.IsNullOrWhiteSpace(this.filter))
+        {
+            this.FilteredMovies = this.Movies.Where(it => it.Title.ToLower().Contains(this.filter.ToLower())).ToList();
+        }
+        else
+        {
+            FilteredMovies.Clear();
+            FilteredMovies.AddRange(Movies);
+        }
+    }
+
+    void OnClick(Guid id, MouseEventArgs args)
+    {
+        this.UriHelper.NavigateTo($"mdetails/{id}");
+    }
+}

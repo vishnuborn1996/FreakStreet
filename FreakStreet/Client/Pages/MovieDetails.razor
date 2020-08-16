@@ -1,0 +1,40 @@
+﻿@page "/mdetails/{id}"
+@inject HttpClient Http
+@inject NavigationManager UriHelper
+
+
+<div class="row">
+    @if (this.Movie != null)
+    {
+        <div class="col-md-3">
+            <Card>
+                <CardImage Source="@Movie.PrimaryImg" Alt="Placeholder image">
+                </CardImage>
+            </Card>
+
+            <div class="movie-description">
+                @Movie.Description
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="videoWrapper">
+                <iframe width="600" height="600" src="@Movie.PrimaryVid">
+                </iframe>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    public MovieModel Movie { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var guid = new Guid(id);
+        Movie = await Http.GetJsonAsync<MovieModel>($"api/movies/{guid}");
+    }
+}
+

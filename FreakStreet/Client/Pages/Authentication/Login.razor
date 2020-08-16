@@ -1,0 +1,67 @@
+﻿@page "/login"
+@using Newtonsoft.Json
+@inject HttpClient Http
+@inject NavigationManager UriHelper
+
+<div class="row">
+    <div class="offset-4 col-md-4">
+        <div>
+            <h4>Login</h4>
+            <EditForm Model="loginModel" OnSubmit="OnSubmit">
+
+                <Validations @ref="validations" Mode="ValidationMode.Auto" ValidateOnLoad="false" Model="@loginModel">
+                    <Validation>
+                        <FieldLabel>Username</FieldLabel>
+                        <TextEdit Placeholder="Username" Style="width:50%" @bind-Text="@loginModel.Username">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Validation>
+                    <Validation>
+                        <Field>
+                            <FieldLabel>Password</FieldLabel>
+                            <TextEdit Role="TextRole.Password" Style="width:50%" Placeholder="Password" @bind-Text="@loginModel.Password">
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+
+                </Validations>
+                <Button Loading="loading" Type="ButtonType.Submit" Color="Color.Primary">Login</Button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code{
+
+    private LoginModel loginModel;
+    private string username;
+    private string password;
+    private bool loading = false;
+
+    Validations validations;
+
+    public Login()
+    {
+        this.loginModel = new LoginModel();
+    }
+
+
+    public async void OnSubmit()
+    {
+        loading = true;
+        if (validations.ValidateAll())
+        {
+            Console.WriteLine(JsonConvert.SerializeObject(this.loginModel));
+
+            var response = await Http.PostJsonAsync<LoginModel>("api/account/login", loginModel);
+            loading = false;
+            Console.WriteLine(response);
+            UriHelper.NavigateTo("counter");
+        }
+    }
+}
