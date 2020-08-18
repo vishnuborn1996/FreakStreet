@@ -199,8 +199,12 @@ app {
 .movie-card {
     display: inline-block;
     max-width: 350px;
-    width: 350px;
+    width: 200px;
     margin: 8px;
+}
+
+.card-title{
+    font-size:1em;
 }
 
 .list-image {
@@ -247,7 +251,11 @@ app {
     color: white
 }
 
-.navbar a{
+.cast-details{
+    color:white;
+}
+
+.navbar a {
     color: white;
 }
 

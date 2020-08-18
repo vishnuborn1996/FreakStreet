@@ -3,17 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakStreet.Server", "FreakStreet\Server\FreakStreet.Server.csproj", "{414923AB-DE51-4ABB-9A18-99A598663EB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakStreet.Server", "FreakStreet\Server\FreakStreet.Server.csproj", "{414923AB-DE51-4ABB-9A18-99A598663EB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakStreet.Client", "FreakStreet\Client\FreakStreet.Client.csproj", "{ACCB3855-657D-48FB-A6A7-E5BA6D0DFFD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakStreet.Client", "FreakStreet\Client\FreakStreet.Client.csproj", "{ACCB3855-657D-48FB-A6A7-E5BA6D0DFFD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakStreet.Shared", "FreakStreet\Shared\FreakStreet.Shared.csproj", "{E0DAFCDF-7CDF-4F13-BA71-740EAC3AC497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakStreet.Shared", "FreakStreet\Shared\FreakStreet.Shared.csproj", "{E0DAFCDF-7CDF-4F13-BA71-740EAC3AC497}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{C11E9082-5788-4B82-82D8-F93DEBB84218}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F0DEEE5F-4E48-4207-9920-C4D1C2FC64A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakStreet.Domain", "FreakStreet.Domain\FreakStreet.Domain.csproj", "{C7FD4CD3-4E5E-472D-82AD-34D84849BA85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakStreet.Domain", "FreakStreet.Domain\FreakStreet.Domain.csproj", "{C7FD4CD3-4E5E-472D-82AD-34D84849BA85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakStreet.Model", "FreakStreet.Model\FreakStreet.Model.csproj", "{831F2AF7-889E-4D38-86CD-E88528B94CBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreakStreet.Interfaces", "FreakStreet.Interfaces\FreakStreet.Interfaces.csproj", "{CF6BEF81-76B2-479F-BBC7-89FBBF0AABF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakStreet.Service", "FreakStreet.Service\FreakStreet.Service.csproj", "{57118CEC-DE0A-4B47-9F44-583F7F2EF129}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,18 @@ Global
 		{C7FD4CD3-4E5E-472D-82AD-34D84849BA85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7FD4CD3-4E5E-472D-82AD-34D84849BA85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7FD4CD3-4E5E-472D-82AD-34D84849BA85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831F2AF7-889E-4D38-86CD-E88528B94CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831F2AF7-889E-4D38-86CD-E88528B94CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831F2AF7-889E-4D38-86CD-E88528B94CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831F2AF7-889E-4D38-86CD-E88528B94CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6BEF81-76B2-479F-BBC7-89FBBF0AABF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6BEF81-76B2-479F-BBC7-89FBBF0AABF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6BEF81-76B2-479F-BBC7-89FBBF0AABF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6BEF81-76B2-479F-BBC7-89FBBF0AABF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57118CEC-DE0A-4B47-9F44-583F7F2EF129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57118CEC-DE0A-4B47-9F44-583F7F2EF129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57118CEC-DE0A-4B47-9F44-583F7F2EF129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57118CEC-DE0A-4B47-9F44-583F7F2EF129}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

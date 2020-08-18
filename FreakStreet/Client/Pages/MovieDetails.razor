@@ -3,25 +3,50 @@
 @inject NavigationManager UriHelper
 
 
-<div class="row">
+<div>
     @if (this.Movie != null)
-    {
-        <div class="col-md-3">
-            <Card>
-                <CardImage Source="@Movie.PrimaryImg" Alt="Placeholder image">
-                </CardImage>
-            </Card>
+    {<div class="row">
+            <div class="col-md-3">
+                <Card>
+                    <CardImage Source="@Movie.PrimaryImg" Alt="Placeholder image">
+                    </CardImage>
+                </Card>
 
-            <div class="movie-description">
-                @Movie.Description
+                <div class="movie-description">
+                    @Movie.Description
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="videoWrapper">
+                    <iframe width="600" height="600" src="@Movie.PrimaryVid">
+                    </iframe>
+                </div>
             </div>
         </div>
-        <div class="col-md-9">
-            <div class="videoWrapper">
-                <iframe width="600" height="600" src="@Movie.PrimaryVid">
-                </iframe>
+        <div class="row">
+            <div class="col-md-3">
+                <h2 style="color:white"> Casts</h2>
+                <Table class="cast-details" Borderless="true" style="color:white">
+                    <TableHeader>
+                        <TableRow>                            
+                            <TableHeaderCell>Name</TableHeaderCell>                            
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        @foreach (var item in Movie.Casts)
+                        {
+                            <TableRow>
+                                                           
+                                <TableRowCell>@item.Name as @item.CharacterName </TableRowCell>
+                            </TableRow>
+                        }
+
+                    </TableBody>
+                </Table>
             </div>
         </div>
+
+
     }
 </div>
 
