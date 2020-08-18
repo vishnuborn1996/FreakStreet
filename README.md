@@ -1,2 +1,2 @@
 # FreakStreet
-Movie Library Created Using DotNetCore and Blazor WebAssembly
+Movie Library Created Using DotNetCore, MongoDB and Blazor WebAssembly
